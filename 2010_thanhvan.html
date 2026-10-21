@@ -1,0 +1,383 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thư gửi cô Thanh Vân</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at top, #fff8f4 0%, transparent 65%),
+        linear-gradient(135deg, #fce4ec, #fff0e5, #f9dce5);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    color: #79394d;
+}
+
+.petal {
+    position: fixed;
+    top: -40px;
+    z-index: 0;
+    pointer-events: none;
+    animation: falling linear infinite;
+    opacity: .8;
+}
+
+@keyframes falling {
+    to { transform: translateY(110vh) rotate(600deg); }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: min(92%, 760px);
+    margin: 0 auto;
+    padding: 38px 0 50px;
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1px solid #e7a4b5;
+    border-radius: 30px;
+    color: #ad4967;
+    letter-spacing: 2px;
+    font-size: 12px;
+    background: #fff9f7b8;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 7vw, 57px);
+    line-height: 1.2;
+    color: #a72f58;
+    margin: 18px 0 8px;
+    text-shadow: 2px 3px 0 #ffffff;
+}
+
+.subtitle {
+    font-family: 'Dancing Script', cursive;
+    font-size: 27px;
+    color: #b65c76;
+}
+
+.flowers {
+    font-size: 32px;
+    margin: 18px 0 10px;
+    letter-spacing: 7px;
+    animation: sway 3s ease-in-out infinite;
+}
+
+@keyframes sway {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(2deg); }
+}
+
+/* Phong bì */
+.envelope-area {
+    margin: 45px auto 25px;
+    perspective: 1000px;
+}
+
+.envelope {
+    position: relative;
+    width: min(340px, 85vw);
+    height: 210px;
+    margin: auto;
+    background: #e8a5b5;
+    border-radius: 5px;
+    box-shadow: 0 15px 35px #a84d6730;
+    cursor: pointer;
+    transition: transform .4s;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #f4c5ce;
+    clip-path: polygon(0 0, 50% 57%, 100% 0);
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: #d987a0;
+    clip-path: polygon(0 100%, 0 0, 50% 56%, 100% 0, 100% 100%);
+    opacity: .92;
+}
+
+.seal {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 57%;
+    transform: translate(-50%, -50%);
+    font-size: 35px;
+    filter: drop-shadow(0 2px 2px #8d354555);
+}
+
+.envelope-label {
+    position: absolute;
+    z-index: 6;
+    width: 100%;
+    top: 78%;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    text-shadow: 0 1px 3px #9b3e5c;
+}
+
+.hint {
+    color: #a04c67;
+    font-size: 13px;
+    margin-top: 17px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .5; }
+}
+
+/* Lá thư */
+.letter {
+    display: none;
+    text-align: left;
+    position: relative;
+    padding: clamp(22px, 5vw, 43px);
+    margin: 35px auto 0;
+    max-width: 650px;
+    background:
+        linear-gradient(#fffdf9ee, #fffaf3f5),
+        #fffaf3;
+    border: 1px solid #e7bdad;
+    border-radius: 5px;
+    box-shadow: 0 12px 38px #a0446020;
+    animation: openLetter .9s ease forwards;
+}
+
+.letter::before {
+    content: "✿";
+    position: absolute;
+    top: 10px;
+    right: 17px;
+    font-size: 30px;
+    color: #d8879e;
+}
+
+@keyframes openLetter {
+    from { opacity: 0; transform: translateY(35px) scale(.96); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.letter h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(27px, 5vw, 37px);
+    color: #ae3e62;
+    text-align: center;
+    margin: 0 0 22px;
+}
+
+.letter p {
+    font-size: 14px;
+    line-height: 1.95;
+    margin: 12px 0;
+}
+
+.letter .wish {
+    color: #9b3859;
+    font-weight: 600;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    text-align: right;
+    font-size: 25px;
+    color: #b34768;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 13px 25px;
+    margin: 22px 5px 0;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.open-btn {
+    background: linear-gradient(135deg, #c64e73, #e58ba5);
+    color: white;
+    box-shadow: 0 5px 15px #c64e7335;
+}
+
+.open-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px #c64e7345;
+}
+
+.close-btn {
+    background: #f6e1e6;
+    color: #98445e;
+}
+
+.footer {
+    margin-top: 35px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 23px;
+    color: #b85c78;
+}
+
+.hidden { display: none; }
+
+@media (max-width: 480px) {
+    .container { padding-top: 25px; }
+    .envelope { height: 185px; }
+    .letter p { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<div id="petals"></div>
+
+<main class="container">
+    <div class="tag">A LITTLE LETTER OF GRATITUDE</div>
+
+    <h1>Gửi Cô Thanh Vân</h1>
+    <div class="subtitle">Lời tri ân từ học trò cuối cấp 🌷</div>
+
+    <div class="flowers">🌹 🌸 🌷 🌸 🌹</div>
+
+    <div id="envelopeArea" class="envelope-area">
+        <div class="envelope" onclick="openLetter()">
+            <div class="seal">💌</div>
+            <div class="envelope-label">Gửi cô Thanh Vân kính mến</div>
+        </div>
+        <div class="hint">♡ Nhấn vào phong bì để mở lá thư ♡</div>
+    </div>
+
+    <section id="letter" class="letter">
+        <h2>Gửi cô Thanh Vân kính mến! 💗</h2>
+
+        <p>
+            Cô Thanh Vân kính mến!
+        </p>
+
+        <p>
+            Nhân ngày Phụ nữ Việt Nam 20/10, em xin gửi đến cô những lời
+            chúc chân thành và yêu thương nhất. Cảm ơn cô vì đã luôn tận
+            tâm, dịu dàng và dành cho chúng em sự quan tâm trên hành trình
+            học tập dưới mái trường thân yêu.
+        </p>
+
+        <p class="wish">
+            🌷 Kính chúc cô luôn mạnh khỏe, bình an, hạnh phúc và giữ mãi
+            nụ cười rạng rỡ cùng nhiệt huyết với nghề giáo.
+        </p>
+
+        <p class="wish">
+            💖 Mong mỗi ngày đến trường của cô đều ngập tràn niềm vui,
+            nhận được thật nhiều yêu thương, sự trân trọng và những điều
+            tốt đẹp từ đồng nghiệp cũng như các thế hệ học trò.
+        </p>
+
+        <p class="wish">
+            ✨ Với chúng em – những học sinh đang bước vào năm cuối cấp –
+            từng lời dạy, sự động viên và những điều cô âm thầm dành cho
+            lớp sẽ trở thành hành trang quý giá trước ngưỡng cửa tương lai.
+        </p>
+
+        <p class="wish">
+            🌸 Mai này khi rời xa mái trường, có thể chúng em sẽ bận rộn
+            với những con đường riêng, nhưng chắc chắn sẽ luôn nhớ về thầy
+            cô, những bài học và những tháng ngày thanh xuân đáng quý.
+        </p>
+
+        <p>
+            Cảm ơn cô vì đã góp phần làm nên những kỷ niệm đẹp trong quãng
+            đời học sinh của chúng em. Chúc cô có một ngày 20/10 thật ấm áp,
+            ngập tràn hoa tươi, tiếng cười và những lời yêu thương!
+        </p>
+
+        <p style="text-align:center; font-size:18px; color:#b13f65;">
+            💐 Kính chúc cô luôn rạng rỡ, hạnh phúc và mãi là đóa hoa đẹp
+            trong lòng các thế hệ học trò! 💐
+        </p>
+
+        <div class="signature">
+            Với tất cả lòng biết ơn,<br>
+            Học trò cuối cấp của cô Thanh Vân 💌
+        </div>
+
+        <div style="text-align:center">
+            <button class="close-btn" onclick="closeLetter()">
+                Gấp thư lại ♡
+            </button>
+        </div>
+    </section>
+
+    <div class="footer">
+        Made with love, gửi đến cô Thanh Vân kính mến 💕
+    </div>
+</main>
+
+<script>
+function openLetter() {
+    document.getElementById('letter').style.display = 'block';
+    document.getElementById('envelopeArea').classList.add('hidden');
+
+    setTimeout(() => {
+        document.getElementById('letter').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }, 100);
+}
+
+function closeLetter() {
+    document.getElementById('letter').style.display = 'none';
+    document.getElementById('envelopeArea').classList.remove('hidden');
+
+    document.getElementById('envelopeArea').scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+    });
+}
+
+// Cánh hoa rơi nhẹ nhàng
+const petalBox = document.getElementById('petals');
+const symbols = ['🌸', '🌷', '🌹', '💗', '✿'];
+
+for (let i = 0; i < 22; i++) {
+    const petal = document.createElement('span');
+    petal.className = 'petal';
+    petal.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.animationDuration = (7 + Math.random() * 10) + 's';
+    petal.style.animationDelay = (-Math.random() * 15) + 's';
+    petal.style.fontSize = (12 + Math.random() * 15) + 'px';
+    petalBox.appendChild(petal);
+}
+</script>
+
+</body>
+</html>
